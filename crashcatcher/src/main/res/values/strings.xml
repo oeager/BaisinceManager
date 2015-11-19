@@ -1,0 +1,10 @@
+<resources>
+    <string name="log_description">reduce log resources</string>
+    <string name="log_push_event_description">required for report log</string>
+    <string name="default_report_title">抱歉哦,%1$s罢工了~</string>
+    <string name="default_report_description">亲,是否上传此错误日志报告,以帮助我们分析问题?\t报告可能包含您的个人信息，但我们会做好保密并仅用作问题分析哦~</string>
+    <string name="default_report_log"><u>查看日志摘要</u></string>
+    <string name="report_negative_btn">取消</string>
+    <string name="report_positive_btn">上报</string>
+    <string name="send_report">发送报告</string>
+</resources>

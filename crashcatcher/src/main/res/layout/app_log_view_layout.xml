@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/bottom_bar"
+        android:weightSum="2"
+        >
+        <Button
+            android:id="@+id/negativeBtn"
+            android:background="@drawable/white_solid_gray_stroke_drawable"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginRight="10dp"
+            android:layout_height="40dp"
+            android:textColor="#999999"
+            android:text="@string/report_negative_btn"/>
+        <Button
+            android:id="@+id/positiveBtn"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/white_solid_gray_stroke_drawable"
+            android:layout_height="40dp"
+            android:textColor="#999999"
+            android:text="@string/report_positive_btn"/>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:scrollbars="none"
+        android:layout_above="@id/bottom_bar"
+        android:overScrollMode="never"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/detail_message"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </ScrollView>
+
+
+</RelativeLayout>

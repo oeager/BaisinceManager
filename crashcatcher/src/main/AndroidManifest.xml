@@ -1,0 +1,43 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bison.crash.catcher"
+    android:sharedUserId="com.android.log.reduce"
+    android:sharedUserLabel="@string/log_description">
+
+    <permission
+        android:name="com.bison.developer.log.PUSH_EVENT"
+        android:description="@string/log_push_event_description"
+        android:label="Log Report"
+        android:permissionGroup="com.bison.developer"
+        android:protectionLevel="normal" />
+
+    <uses-permission android:name="com.bison.developer.log.PUSH_EVENT" />
+
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true">
+        <activity
+            android:name=".AppReportActivity"
+            android:permission="com.bison.developer.log.PUSH_EVENT"
+            android:process="com.android.log.reduce"
+            android:theme="@style/CrashUIStyle">
+            <intent-filter>
+                <action android:name="android.bison.action.APP_ERROR" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".LogViewActivity"
+            android:permission="com.bison.developer.log.PUSH_EVENT"
+            android:process="com.android.log.reduce"
+            android:theme="@style/detail_log"/>
+
+        <service
+            android:name=".LogReportService"
+            android:permission="com.bison.developer.log.PUSH_EVENT"
+            android:process="com.android.log.reduce" />
+    </application>
+
+</manifest>

@@ -1,0 +1,15 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.bison.app"
+   >
+
+    <permission-group
+        android:name="com.bison.developer"
+        android:description="@string/bison_developer_permission_group_description"
+        android:label="Bison FrameWork Library Permission Group" />
+
+    <application
+        android:allowBackup="true">
+
+    </application>
+
+</manifest>
