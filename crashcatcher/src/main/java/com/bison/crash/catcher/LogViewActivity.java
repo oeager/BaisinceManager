@@ -59,6 +59,7 @@ public class LogViewActivity extends Activity{
             @Override
             public void onClick(View v) {
                 LogReportService.start(LogViewActivity.this,getIntent().getExtras());
+                finish();
             }
         });
 
@@ -71,7 +72,7 @@ public class LogViewActivity extends Activity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        menu.add(1,1,1,"复制");
+        menu.add(1,1,1,getString(R.string.copy));
         return super.onCreateOptionsMenu(menu);
     }
 

@@ -9,6 +9,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.lang.reflect.Field;
 import java.net.HttpURLConnection;
@@ -50,7 +51,7 @@ public final class ReportFunc {
 
         @Override
         public String generateBody(Context context,String crashData) {
-            return StringWrapper(context,crashData);
+            return StringWrapper(context, crashData);
         }
 
         @Override
@@ -64,6 +65,8 @@ public final class ReportFunc {
                 intent.putExtra(Intent.EXTRA_TEXT, data.getString(CrashCatcher.CONTENT));
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
+            }else {
+                Log.e(TAG,context.getString(R.string.no_emai_app));
             }
         }
 

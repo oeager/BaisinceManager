@@ -7,4 +7,6 @@
     <string name="report_negative_btn">取消</string>
     <string name="report_positive_btn">上报</string>
     <string name="send_report">发送报告</string>
+    <string name="no_emai_app">未找到邮件应用</string>
+    <string name="copy">复制</string>
 </resources>

@@ -53,10 +53,5 @@ public class LogReportService extends IntentService {
         }
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        System.exit(0);
-    }
 }
     
