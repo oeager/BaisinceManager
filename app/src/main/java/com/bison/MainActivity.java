@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.bison.app.components.fragments.ProgressDialogFragment;
 import com.developer.bsince.log.GOL;
 
 public class MainActivity extends AppCompatActivity {
@@ -20,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        ProgressDialogFragment.newInstance("load").show(this);
 
     }
     public void showOnBindData(View v){

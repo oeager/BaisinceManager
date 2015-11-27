@@ -3,4 +3,14 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="model_list">模块列表</string>
+
+    <string-array name="model_list">
+        <item>Manager</item>
+        <item>CrashCatcher</item>
+        <item>Derivative</item>
+        <item>EasyEvent</item>
+        <item>Support</item>
+        <item>TransitionCompat</item>
+    </string-array>
 </resources>

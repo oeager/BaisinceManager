@@ -38,9 +38,6 @@ public abstract class BaseAppActivity extends AppCompatActivity implements Activ
         this.wasCreated = true;
         this.currentIntent = getIntent();
         BaseApp.joinActivity(this);
-        FrameLayout layout = (FrameLayout) findViewById(android.R.id.content);
-        setBackGroundRes(layout);
-
         LifecycleCompatDispatcher.getDefault().onActivityCreated(this, savedInstanceState);
     }
 
@@ -108,7 +105,6 @@ public abstract class BaseAppActivity extends AppCompatActivity implements Activ
 
     @Override
     protected void onDestroy() {
-
         super.onDestroy();
         BaseApp.quitActivity(this);
         if (toast != null) {
@@ -117,10 +113,6 @@ public abstract class BaseAppActivity extends AppCompatActivity implements Activ
         }
         LifecycleCompatDispatcher.getDefault().onActivityDestroyed(this);
 
-    }
-
-
-    public void setBackGroundRes(View v) {
     }
 
 
@@ -134,9 +126,7 @@ public abstract class BaseAppActivity extends AppCompatActivity implements Activ
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         wasInterrupted = true;
-
     }
-
 
     @Override
     public void showToast(String msg) {
@@ -162,9 +152,7 @@ public abstract class BaseAppActivity extends AppCompatActivity implements Activ
 
     @Override
     public void showProgressDialog(String msg,boolean cancelable) {
-        if(dialogFragment==null){
-           dialogFragment =   ProgressDialogFragment.newInstance(msg);
-        }
+        dialogFragment =ProgressDialogFragment.newInstance(msg);
         dialogFragment.setCancelable(cancelable);
         ((ProgressDialogFragment)dialogFragment).show(this);
     }
@@ -179,6 +167,7 @@ public abstract class BaseAppActivity extends AppCompatActivity implements Activ
     public void dismissProgressDialog() {
         if(dialogFragment!=null){
             dialogFragment.dismiss();
+            dialogFragment=null;
         }
     }
 

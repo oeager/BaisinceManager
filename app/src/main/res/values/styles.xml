@@ -1,10 +1,9 @@
 <resources>
 
-    <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-    </style>
-    <style name="appTheme" parent="Theme.AppCompat.Light">
-        <item name="android:windowIsTranslucent">true</item>
+    <style name="appTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="progressBarBackground">@drawable/dialog_bg</item>
+        <item name="colorAccent">@android:color/holo_red_light</item>
+        <item name="colorPrimary">@android:color/holo_red_dark</item>
+        <item name="colorPrimaryDark">@android:color/holo_red_dark</item>
     </style>
 </resources>

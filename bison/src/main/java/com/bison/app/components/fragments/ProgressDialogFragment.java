@@ -1,7 +1,5 @@
 package com.bison.app.components.fragments;
 
-import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.Nullable;
@@ -23,8 +21,13 @@ import com.bison.app.R;
  * Created by oeager on 2015/11/13.
  * email:oeager@foxmail.com
  */
-public class ProgressDialogFragment extends DialogFragmentWrapper {
+public class ProgressDialogFragment extends DialogFragment {
 
+    public final static String DIALOG_FRAGMENT_TAG = "dialog_fragment_tag";
+
+    private final static String STYLE_KEY = "style";
+
+    private final static String THEME_KEY = "theme";
 
     private ProgressBar progressBar;
 
@@ -40,7 +43,9 @@ public class ProgressDialogFragment extends DialogFragmentWrapper {
     }
 
     public static ProgressDialogFragment newInstance(String loadMessage, @LayoutRes int layout) {
-        Bundle bundle = generateStyleBundle(DialogFragment.STYLE_NORMAL, R.style.Bison_Progress_Dialog);
+        Bundle bundle = new Bundle();
+        bundle.putInt(STYLE_KEY, DialogFragment.STYLE_NORMAL);
+        bundle.putInt(THEME_KEY, R.style.Bison_Progress_Dialog);
         bundle.putString(LOAD_MESSAGE, loadMessage);
         bundle.putInt(LOAD_LAYOUT,layout);
         ProgressDialogFragment p = new ProgressDialogFragment();
@@ -48,6 +53,16 @@ public class ProgressDialogFragment extends DialogFragmentWrapper {
         return p;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Bundle bundle = getArguments();
+        if(bundle!=null){
+            int style = bundle.getInt(STYLE_KEY);
+            int theme = bundle.getInt(THEME_KEY);
+            setStyle(style,theme);
+        }
+    }
 
     @Nullable
     @Override
@@ -81,6 +96,10 @@ public class ProgressDialogFragment extends DialogFragmentWrapper {
         ft.addToBackStack(null);
         show(ft, DIALOG_FRAGMENT_TAG);
 
+    }
+
+    public ProgressBar getProgressBar(){
+        return progressBar;
     }
 }
     

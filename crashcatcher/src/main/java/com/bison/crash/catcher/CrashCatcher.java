@@ -48,6 +48,7 @@ public final class CrashCatcher implements Thread.UncaughtExceptionHandler {
     public void restoreDefaultSettings() {
         registerErrorHandleActivity(AppReportActivity.class);
         registerErrorDetailActivity(LogViewActivity.class);
+        forceReportMode = false;
         String title = String.format(mApp.getString(R.string.default_report_title), getApplicationName(mApp));
         registerReportData(AppReportActivity.TITLE, title);
         registerReportData(AppReportActivity.DESCRIPTION, mApp.getString(R.string.default_report_description));

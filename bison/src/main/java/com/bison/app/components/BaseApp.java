@@ -45,6 +45,9 @@ public abstract class BaseApp extends Application {
      * 结束当前Activity（堆栈中最后一个压入的）
      */
     public void finishActivity() {
+        if(activityStack.isEmpty()){
+            return;
+        }
         Activity activity = activityStack.pop();
         if (activity != null && !activity.isFinishing()) {
             activity.finish();
@@ -82,7 +85,10 @@ public abstract class BaseApp extends Application {
         while (iterator.hasNext()){
             Activity activity = iterator.next();
             if (activity.getClass().equals(cls)) {
-                finishActivity(activity);
+                iterator.remove();
+                if(!activity.isFinishing()){
+                    activity.finish();
+                }
             }
         }
 

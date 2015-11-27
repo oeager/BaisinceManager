@@ -27,4 +27,4 @@ dependencies {
     compile 'com.developer.log:app:1.1.0'
     compile 'com.android.support:appcompat-v7:22.2.1'
 }
-apply from: 'bintray.gradle'
+//apply from: 'bintray.gradle'

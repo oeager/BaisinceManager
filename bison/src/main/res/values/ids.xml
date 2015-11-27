@@ -3,4 +3,5 @@
     <item name="fragment_uniqueId" type="id"/>
     <item name="action_error" type="id"/>
     <item name="child_container" type="id"/>
+    <item name="item_view_tag_id" type="id"/>
 </resources>

@@ -51,7 +51,7 @@ public abstract class RecycleViewAdapterWrapper <VH extends RecyclerView.ViewHol
             return;
         }
         T t = mListData.get(realPosition);
-        onBindItemViewData(holder,t,generateViewType(position,realPosition,t));
+        onBindItemViewData(holder, t,realPosition);
     }
 
     @Override
@@ -91,35 +91,26 @@ public abstract class RecycleViewAdapterWrapper <VH extends RecyclerView.ViewHol
 
     }
 
-    public void appendData(List<T> list) {
-        if (list != null) {
-            mListData.addAll(list);
-            notifyDataSetChanged();
-        }
-
+    public void notifyDataSetChanged(boolean keepOld,T...newData){
+        notifyDataSetChanged(keepOld,Arrays.asList(newData));
     }
 
-    public void appendData(T[] data) {
-        if (data != null) {
-            mListData.addAll(Arrays.asList(data));
-            notifyDataSetChanged();
+    public void notifyDataSetChanged(boolean keepOld,List<T> newData){
+        if(!keepOld){
+            mListData.clear();
         }
-    }
-
-    public void refreshData(List<T> list) {
-        mListData.clear();
-        if (list != null) {
-            mListData.addAll(list);
+        if(newData!=null){
+            mListData.addAll(newData);
         }
         notifyDataSetChanged();
     }
 
-    public void refreshData(T[] data) {
+    public void clearRecyclerData(){
         mListData.clear();
-        if (data != null) {
-            mListData.addAll(Arrays.asList(data));
-        }
-        notifyDataSetChanged();
+    }
+
+    protected Context getContext(){
+        return context;
     }
 
     public List<T> getListData(){
@@ -145,7 +136,7 @@ public abstract class RecycleViewAdapterWrapper <VH extends RecyclerView.ViewHol
 
     protected abstract VH onCreateRecycleItemView(LayoutInflater layoutInflater, ViewGroup parent, int viewType);
 
-    protected abstract void onBindItemViewData(VH holder, T data,int contentViewType);
+    protected abstract void onBindItemViewData(VH holder, T data,int dataPosition);
 
 
 }

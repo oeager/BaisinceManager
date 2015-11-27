@@ -25,4 +25,7 @@
         <attr name="layout_weight" format="float"/>
         <attr name="android:layout_gravity"/>
     </declare-styleable>
+
+    <!-- define theme style -->
+    <attr name="progressBarBackground" format="reference"/>
 </resources>
